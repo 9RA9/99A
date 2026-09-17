@@ -5,63 +5,27 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NYSC PPA Application — Abuja</title>
 <style>
-:root{--bg:#071018;--card:#0d1a24;--line:#1d3443;--text:#f4f7f9;--muted:#a8b7c2;--accent:#58d6b1;--accent2:#8ab8ff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 10%,#12352f 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;line-height:1.55}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7%;border-bottom:1px solid #ffffff12;position:sticky;top:0;background:#071018dd;backdrop-filter:blur(14px);z-index:3}.logo{font-weight:800;letter-spacing:.08em}.navlink{color:var(--muted);text-decoration:none;margin-left:22px}
-.hero{max-width:1120px;margin:auto;padding:100px 7% 75px;display:grid;grid-template-columns:1.4fr .8fr;gap:55px;align-items:center}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
-h1{font-size:clamp(44px,7vw,82px);line-height:.98;margin:16px 0 22px;letter-spacing:-.05em}.lead{font-size:20px;color:var(--muted);max-width:680px}.buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}.btn{padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:750;border:1px solid var(--line)}.primary{background:var(--accent);color:#06120f}.secondary{color:var(--text)}
-.profile{border:1px solid var(--line);background:linear-gradient(145deg,#10222d,#09141c);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0005}.profile .mark{height:150px;border-radius:18px;background:linear-gradient(135deg,#163d37,#17263e);display:grid;place-items:center;font-size:58px;font-weight:900;color:#ffffffaa}.mini{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:15px 0}.mini:last-child{border:0}
-section{max-width:1120px;margin:auto;padding:70px 7%}.section-title{font-size:34px;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px}.card h3{margin-top:0}.muted{color:var(--muted)}.tag{display:inline-block;border:1px solid #2a4655;border-radius:999px;padding:7px 11px;margin:5px 5px 0 0;color:#c9d8df;font-size:14px}
-.cta{background:linear-gradient(135deg,#12382f,#10263b);border:1px solid var(--line);border-radius:24px;padding:38px}.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact a{color:var(--accent);text-decoration:none}
-footer{padding:35px 7%;color:#748591;border-top:1px solid #ffffff10;text-align:center}
+:root{--bg:#ffffff;--surface:#f4faf6;--card:#ffffff;--line:#d9e9df;--text:#123126;--muted:#5d7067;--green:#0b7a45;--green2:#12a45f;--green-dark:#075c35}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#ffffff 0%,#f6fbf8 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;line-height:1.55}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 7%;border-bottom:1px solid var(--line);position:sticky;top:0;background:#ffffffee;backdrop-filter:blur(14px);z-index:3}.logo{font-weight:850;letter-spacing:.08em;color:var(--green-dark)}.navlink{color:var(--muted);text-decoration:none;margin-left:22px}.navlink:hover{color:var(--green)}
+.hero{max-width:1120px;margin:auto;padding:100px 7% 75px;display:grid;grid-template-columns:1.4fr .8fr;gap:55px;align-items:center}.eyebrow{color:var(--green);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+h1{font-size:clamp(44px,7vw,82px);line-height:.98;margin:16px 0 22px;letter-spacing:-.05em;color:var(--green-dark)}.lead{font-size:20px;color:var(--muted);max-width:680px}.buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}.btn{padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:750;border:1px solid var(--green)}.primary{background:var(--green);color:#fff}.primary:hover{background:var(--green-dark)}.secondary{color:var(--green-dark);background:#fff}
+.profile{border:1px solid var(--line);background:#fff;border-radius:24px;padding:28px;box-shadow:0 25px 70px rgba(7,92,53,.10)}.profile .mark{height:150px;border-radius:18px;background:linear-gradient(135deg,#e7f6ed,#c9ecd8);display:grid;place-items:center;font-size:58px;font-weight:900;color:var(--green-dark)}.mini{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:15px 0}.mini:last-child{border:0}
+section{max-width:1120px;margin:auto;padding:70px 7%}.section-title{font-size:34px;margin:0 0 28px;color:var(--green-dark)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 10px 35px rgba(7,92,53,.045)}.card h3{margin-top:0;color:var(--green-dark)}.muted{color:var(--muted)}.tag{display:inline-block;border:1px solid #a9d7bd;border-radius:999px;padding:7px 11px;margin:5px 5px 0 0;color:var(--green-dark);font-size:14px;background:#f1faf5}
+.cta{background:linear-gradient(135deg,#e9f8ef,#f7fcf9);border:1px solid #b9dfc8;border-radius:24px;padding:38px}.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact a{color:var(--green);text-decoration:none;font-weight:700}
+footer{padding:35px 7%;color:#718278;border-top:1px solid var(--line);text-align:center;background:#fff}
 @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:65px}.grid,.contact{grid-template-columns:1fr}nav .navlink{display:none}}
 </style>
 </head>
 <body>
 <nav><div class="logo">PPA / ABUJA</div><div><a class="navlink" href="#about">About</a><a class="navlink" href="#skills">Skills</a><a class="navlink" href="#contact">Contact</a></div></nav>
-
-<header class="hero">
-<div>
-<div class="eyebrow">NYSC Place of Primary Assignment</div>
-<h1>Professional value.<br>Ready to serve.</h1>
-<p class="lead">A personal application profile for prospective organizations in Abuja seeking a motivated NYSC corps member for a meaningful Place of Primary Assignment.</p>
-<div class="buttons"><a class="btn primary" href="#contact">Request My PPA</a><a class="btn secondary" href="#cv">View CV</a></div>
-</div>
-<div class="profile">
-<div class="mark">CV</div>
-<div class="mini"><span class="muted">Candidate</span><strong>Your Name</strong></div>
-<div class="mini"><span class="muted">Location</span><strong>Abuja, FCT</strong></div>
-<div class="mini"><span class="muted">Status</span><strong>Seeking PPA</strong></div>
-</div>
-</header>
-
-<section id="about">
-<h2 class="section-title">About the Candidate</h2>
-<div class="card"><p class="muted">I am seeking an NYSC Place of Primary Assignment in Abuja where I can apply my academic training, contribute to organizational goals, develop practical experience and deliver dependable work.</p><p class="muted">This page is designed as a direct professional profile for prospective PPA organizations. Candidate-specific education, experience and achievements will be populated from the CV.</p></div>
-</section>
-
-<section>
-<h2 class="section-title">Education & Qualifications</h2>
-<div class="grid"><div class="card"><h3>Academic Background</h3><p class="muted">Institution, degree and graduation details will be added from CV.</p></div><div class="card"><h3>Professional Training</h3><p class="muted">Relevant certifications and training will be added from CV.</p></div><div class="card"><h3>NYSC Profile</h3><p class="muted">Service and deployment information can be added here.</p></div></div>
-</section>
-
-<section id="skills">
-<h2 class="section-title">Core Skills</h2>
-<div class="card"><span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Problem Solving</span><span class="tag">Research</span><span class="tag">Digital Skills</span><span class="tag">Professional Development</span></div>
-</section>
-
-<section>
-<h2 class="section-title">What I Bring</h2>
-<div class="grid"><div class="card"><h3>Reliable execution</h3><p class="muted">Prepared to take ownership of assigned responsibilities and meet professional standards.</p></div><div class="card"><h3>Adaptability</h3><p class="muted">Ready to learn new systems, processes and organizational workflows.</p></div><div class="card"><h3>Meaningful contribution</h3><p class="muted">Looking for a PPA where academic knowledge can translate into useful work.</p></div></div>
-</section>
-
+<header class="hero"><div><div class="eyebrow">NYSC Place of Primary Assignment</div><h1>Professional value.<br>Ready to serve.</h1><p class="lead">A personal application profile for prospective organizations in Abuja seeking a motivated NYSC corps member for a meaningful Place of Primary Assignment.</p><div class="buttons"><a class="btn primary" href="#contact">Request My PPA</a><a class="btn secondary" href="#cv">View CV</a></div></div><div class="profile"><div class="mark">CV</div><div class="mini"><span class="muted">Candidate</span><strong>Your Name</strong></div><div class="mini"><span class="muted">Location</span><strong>Abuja, FCT</strong></div><div class="mini"><span class="muted">Status</span><strong>Seeking PPA</strong></div></div></header>
+<section id="about"><h2 class="section-title">About the Candidate</h2><div class="card"><p class="muted">I am seeking an NYSC Place of Primary Assignment in Abuja where I can apply my academic training, contribute to organizational goals, develop practical experience and deliver dependable work.</p><p class="muted">This page is designed as a direct professional profile for prospective PPA organizations. Candidate-specific education, experience and achievements will be populated from the CV.</p></div></section>
+<section><h2 class="section-title">Education & Qualifications</h2><div class="grid"><div class="card"><h3>Academic Background</h3><p class="muted">Institution, degree and graduation details will be added from CV.</p></div><div class="card"><h3>Professional Training</h3><p class="muted">Relevant certifications and training will be added from CV.</p></div><div class="card"><h3>NYSC Profile</h3><p class="muted">Service and deployment information can be added here.</p></div></div></section>
+<section id="skills"><h2 class="section-title">Core Skills</h2><div class="card"><span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Problem Solving</span><span class="tag">Research</span><span class="tag">Digital Skills</span><span class="tag">Professional Development</span></div></section>
+<section><h2 class="section-title">What I Bring</h2><div class="grid"><div class="card"><h3>Reliable execution</h3><p class="muted">Prepared to take ownership of assigned responsibilities and meet professional standards.</p></div><div class="card"><h3>Adaptability</h3><p class="muted">Ready to learn new systems, processes and organizational workflows.</p></div><div class="card"><h3>Meaningful contribution</h3><p class="muted">Looking for a PPA where academic knowledge can translate into useful work.</p></div></div></section>
 <section id="cv"><div class="cta"><h2 class="section-title">Curriculum Vitae</h2><p class="muted">Your CV will be connected here once supplied.</p><a class="btn secondary" href="#contact">Request CV</a></div></section>
-
-<section id="contact">
-<h2 class="section-title">PPA Application</h2>
-<div class="contact"><div class="card"><h3>Interested in my profile?</h3><p class="muted">Prospective employers can use this section to initiate a PPA conversation.</p><a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></div><div class="card"><h3>Direct contact</h3><p class="muted">Phone / WhatsApp details will be added from your CV or supplied contact information.</p><a href="https://wa.me/YOUR_NUMBER">WhatsApp</a></div></div>
-</section>
-
+<section id="contact"><h2 class="section-title">PPA Application</h2><div class="contact"><div class="card"><h3>Interested in my profile?</h3><p class="muted">Prospective employers can use this section to initiate a PPA conversation.</p><a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></div><div class="card"><h3>Direct contact</h3><p class="muted">Phone / WhatsApp details will be added from your CV or supplied contact information.</p><a href="https://wa.me/YOUR_NUMBER">WhatsApp</a></div></div></section>
 <footer>NYSC PPA Application Profile · Abuja, FCT · 2026</footer>
 </body>
 </html>
