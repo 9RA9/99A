@@ -1,136 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A thoughtful digital space for bold ideas, meaningful work, and what comes next." />
-  <title>Northstar — Make your next move</title>
-  <style>
-    :root {
-      --ink: #17211f;
-      --muted: #60716d;
-      --cream: #f4f1e9;
-      --paper: #fbfaf7;
-      --green: #195d4b;
-      --lime: #d8ee83;
-      --line: rgba(23, 33, 31, .14);
-      --serif: Georgia, 'Times New Roman', serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1160px, calc(100% - 48px)); margin: auto; }
-
-    header { padding: 25px 0; border-bottom: 1px solid var(--line); }
-    nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .logo { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; font-size: 1.15rem; }
-    .logo-mark { width: 27px; height: 27px; background: var(--green); display: grid; place-items: center; color: var(--lime); border-radius: 50% 50% 50% 8px; font-size: .9rem; }
-    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: .9rem; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { padding: 12px 18px; border: 1px solid var(--ink); border-radius: 99px; color: var(--ink); }
-    .nav-cta:hover { background: var(--ink); color: white; }
-
-    .hero { padding: 88px 0 110px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 70px; }
-    .eyebrow { color: var(--green); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 24px; }
-    h1 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(3.8rem, 7vw, 6.7rem); font-weight: 400; line-height: .92; letter-spacing: -.075em; }
-    h1 em { color: var(--green); font-style: italic; }
-    .hero-copy { max-width: 420px; margin: 30px 0 34px; color: var(--muted); font-size: 1.07rem; line-height: 1.7; }
-    .buttons { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .button { display: inline-flex; align-items: center; gap: 10px; padding: 16px 22px; border-radius: 99px; background: var(--green); color: white; font-weight: 700; font-size: .92rem; }
-    .button:hover { background: #0e4638; transform: translateY(-2px); }
-    .button.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-    .button.secondary:hover { border-color: var(--ink); background: var(--cream); }
-    .arrow { font-size: 1.1rem; }
-
-    .visual { position: relative; min-height: 480px; background: var(--cream); overflow: hidden; border-radius: 2px; }
-    .visual::before { content: ''; position: absolute; width: 390px; height: 390px; border: 1px solid rgba(25, 93, 75, .25); border-radius: 50%; top: 45px; left: 50%; transform: translateX(-50%); }
-    .visual::after { content: ''; position: absolute; width: 280px; height: 280px; border: 1px solid rgba(25, 93, 75, .25); border-radius: 50%; top: 100px; left: 50%; transform: translateX(-50%); }
-    .sun { position: absolute; width: 158px; height: 158px; border-radius: 50%; background: var(--lime); top: 116px; left: 50%; transform: translateX(-50%); }
-    .mountain { position: absolute; left: -5%; bottom: 0; width: 110%; height: 220px; background: var(--green); clip-path: polygon(0 75%, 17% 49%, 30% 67%, 48% 23%, 67% 65%, 78% 45%, 100% 76%, 100% 100%, 0 100%); }
-    .visual-note { position: absolute; z-index: 2; bottom: 27px; left: 28px; color: white; font-size: .77rem; letter-spacing: .1em; text-transform: uppercase; }
-
-    .band { background: var(--green); color: white; padding: 19px 0; overflow: hidden; }
-    .ticker { display: flex; justify-content: space-between; align-items: center; gap: 30px; white-space: nowrap; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
-    .ticker span { color: var(--lime); }
-
-    .intro { padding: 110px 0; display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; border-bottom: 1px solid var(--line); }
-    h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4rem); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
-    .intro-text { max-width: 600px; color: var(--muted); font-size: 1.2rem; line-height: 1.65; }
-    .intro-text p { margin-top: 0; }
-    .quote { margin-top: 42px; padding-left: 20px; border-left: 2px solid var(--lime); color: var(--ink); font-family: var(--serif); font-size: 1.35rem; line-height: 1.4; }
-
-    footer { padding: 30px 0 45px; display: flex; justify-content: space-between; gap: 25px; color: var(--muted); font-size: .85rem; }
-    footer a:hover { color: var(--ink); }
-
-    @media (max-width: 760px) {
-      .wrap { width: min(100% - 32px, 600px); }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { padding: 65px 0 75px; display: block; }
-      .hero h1 { font-size: clamp(3.5rem, 18vw, 5.5rem); }
-      .visual { margin-top: 55px; min-height: 360px; }
-      .visual::before { width: 290px; height: 290px; }
-      .visual::after { width: 210px; height: 210px; top: 85px; }
-      .sun { width: 115px; height: 115px; top: 100px; }
-      .mountain { height: 160px; }
-      .ticker { justify-content: flex-start; overflow: hidden; }
-      .ticker span:nth-child(2) { display: none; }
-      .intro { padding: 75px 0; display: block; }
-      .intro-text { margin-top: 35px; font-size: 1.05rem; }
-      footer { display: block; line-height: 2; }
-      footer nav { display: block; margin-top: 10px; }
-      footer nav a { margin-right: 15px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="NYSC — National Youth Service Corps. Service, unity and national development.">
+<title>NYSC — Serve. Connect. Build Nigeria.</title>
+<style>
+:root{--green:#006b3f;--deep:#063b28;--lime:#c8e86b;--gold:#f6c453;--cream:#f5f1e7;--ink:#0b1712;--muted:#68756f;--white:#fff;--line:rgba(11,23,18,.13);--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--serif:Georgia,"Times New Roman",serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fbfaf7;color:var(--ink);font-family:var(--sans)}a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}.top{background:var(--deep);color:#fff;font-size:12px;letter-spacing:.06em}.top .wrap{display:flex;justify-content:space-between;padding:9px 0}.nav{position:sticky;top:0;z-index:20;background:rgba(251,250,247,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navin{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em}.crest{width:42px;height:42px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;box-shadow:0 8px 24px rgba(0,107,63,.2)}.links{display:flex;align-items:center;gap:28px;font-size:14px;color:#46534d}.links a:hover{color:var(--green)}.cta{background:var(--green);color:#fff!important;padding:12px 18px;border-radius:999px;font-weight:800}.hero{background:var(--deep);color:#fff;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:720px;height:720px;border:1px solid rgba(200,232,107,.16);border-radius:50%;right:-170px;top:-310px}.hero:after{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(246,196,83,.16);border-radius:50%;right:-30px;top:-180px}.hero .wrap{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px;position:relative;z-index:1}.eyebrow{color:var(--lime);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:24px}.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(4rem,8vw,7.5rem);line-height:.86;letter-spacing:-.075em;margin:0;max-width:750px}.hero h1 em{color:var(--gold);font-style:normal}.lead{font-size:18px;line-height:1.65;color:#d9e3de;max-width:570px;margin:30px 0}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 20px;border-radius:999px;background:var(--lime);color:var(--deep);font-weight:900}.btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25)}.hero-art{height:500px;position:relative;display:grid;place-items:center}.orb{width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 38% 34%,#eaff9c 0 6%,#c8e86b 25%,#7ebd48 62%,#276b42 100%);box-shadow:0 0 100px rgba(200,232,107,.14)}.orb:before{content:"NYSC";position:absolute;inset:0;display:grid;place-items:center;color:var(--deep);font-size:54px;font-weight:1000;letter-spacing:-.08em}.orbit{position:absolute;width:470px;height:180px;border:1px solid rgba(255,255,255,.24);border-radius:50%;transform:rotate(-23deg)}.orbit.two{width:520px;height:240px;transform:rotate(31deg);border-color:rgba(246,196,83,.25)}.float{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px);padding:13px 16px;border-radius:14px;font-size:12px;font-weight:800}.f1{top:58px;right:5px}.f2{bottom:78px;left:10px}.ticker{background:var(--lime);color:var(--deep);overflow:hidden}.ticker .wrap{display:flex;justify-content:space-between;gap:25px;padding:15px 0;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.section{padding:105px 0}.grid2{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.kicker{color:var(--green);font-weight:900;font-size:12px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}.section h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.7rem,5vw,5rem);line-height:.95;letter-spacing:-.065em;margin:0}.copy{font-size:17px;line-height:1.75;color:var(--muted);max-width:680px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:55px}.card{padding:26px;background:#fff;border:1px solid var(--line);border-radius:18px;min-height:190px}.num{font-size:12px;color:var(--green);font-weight:900}.card h3{margin:35px 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}.portal{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.portalbox{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.portalvisual{min-height:410px;border-radius:26px;background:linear-gradient(145deg,#0a4d32,#006b3f);position:relative;overflow:hidden;padding:28px;color:#fff}.map{position:absolute;inset:70px 35px 35px;background:linear-gradient(135deg,rgba(200,232,107,.22),rgba(255,255,255,.04));clip-path:polygon(28% 0,58% 6%,76% 25%,93% 39%,82% 55%,88% 77%,64% 100%,43% 86%,23% 95%,8% 72%,17% 49%,4% 31%);filter:drop-shadow(0 30px 40px rgba(0,0,0,.2))}.pin{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 7px rgba(246,196,83,.15)}.p1{left:42%;top:34%}.p2{left:64%;top:48%}.p3{left:30%;top:60%}.maplabel{position:absolute;left:28px;bottom:25px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d8e8df}.service-links{display:grid;gap:12px;margin-top:30px}.service{background:#fff;border:1px solid var(--line);padding:18px 20px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;font-weight:800}.service span{color:var(--green)}.quote{padding:105px 0;text-align:center;background:var(--deep);color:#fff}.quote h2{max-width:900px;margin:auto;font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,6vw,6rem);line-height:.94;letter-spacing:-.07em}.quote p{color:#bcd0c6;margin:28px auto 0;max-width:600px;line-height:1.7}.footer{padding:34px 0 48px}.footerin{display:flex;justify-content:space-between;gap:30px;color:var(--muted);font-size:13px}.footer a{color:var(--green);font-weight:800}@media(max-width:800px){.links a:not(.cta){display:none}.hero .wrap,.portalbox,.grid2{grid-template-columns:1fr}.hero .wrap{padding:75px 0;min-height:auto}.hero-art{height:390px}.orb{width:260px;height:260px}.cards{grid-template-columns:1fr 1fr}.ticker .wrap{overflow:hidden}.ticker span:nth-child(n+4){display:none}.section{padding:75px 0}.grid2{gap:35px}.portalvisual{min-height:320px}.footerin{display:block;line-height:2}.top .wrap{display:none}}@media(max-width:500px){.cards{grid-template-columns:1fr}.hero h1{font-size:4rem}.wrap{width:min(100% - 28px,1180px)}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav aria-label="Main navigation">
-        <a class="logo" href="#top"><span class="logo-mark">✦</span> NORTHSTAR</a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <a class="nav-cta" href="mailto:hello@example.com">Let’s talk <span aria-hidden="true">↗</span></a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="wrap hero">
-      <div>
-        <div class="eyebrow">Ideas with direction</div>
-        <h1>Build what’s <em>next.</em></h1>
-        <p class="hero-copy">Northstar is a creative studio for people shaping a more thoughtful, more useful future.</p>
-        <div class="buttons">
-          <a class="button" href="#about">Explore the idea <span class="arrow">→</span></a>
-          <a class="button secondary" href="mailto:hello@example.com">Start a conversation</a>
-        </div>
-      </div>
-      <div class="visual" aria-label="Abstract illustration of a sunrise over mountains">
-        <div class="sun"></div>
-        <div class="mountain"></div>
-        <div class="visual-note">A clearer view forward</div>
-      </div>
-    </section>
-
-    <div class="band"><div class="wrap ticker"><span>Clarity</span><b>✦</b><span>Curiosity</span><b>✦</b><span>Courage</span><b>✦</b><span>Craft</span></div></div>
-
-    <section class="wrap intro" id="about">
-      <h2>Good work starts with a better question.</h2>
-      <div class="intro-text">
-        <p>We partner with ambitious teams to turn complex challenges into clear, compelling experiences. From first thought to final detail, we bring strategy, design, and momentum to the table.</p>
-        <div class="quote">“The future belongs to those who can imagine it clearly.”</div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="wrap" id="contact">
-    <div>© 2026 Northstar Studio</div>
-    <nav aria-label="Footer navigation"><a href="mailto:hello@example.com">hello@example.com</a> <a href="#top">Back to top ↑</a></nav>
-  </footer>
+<div class="top"><div class="wrap"><span>FEDERAL REPUBLIC OF NIGERIA</span><span>NATIONAL YOUTH SERVICE CORPS</span></div></div>
+<header class="nav"><div class="wrap navin"><a class="brand" href="#top"><span class="crest">NY</span><span>NYSC</span></a><nav class="links"><a href="#about">About</a><a href="#service">Service Year</a><a href="#portal">Portal</a><a class="cta" href="https://portal.nysc.org.ng/nysc/">Registration ↗</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="wrap"><div><div class="eyebrow">National Youth Service Corps</div><h1>Serve.<br><em>Connect.</em><br>Build.</h1><p class="lead">A modern front door to the NYSC experience — connecting prospective Corps Members and Corps Members with the information, services and resources they need to serve Nigeria.</p><div class="actions"><a class="btn" href="https://portal.nysc.org.ng/nysc/">Open NYSC Portal →</a><a class="btn alt" href="#service">Explore the service year</a></div></div><div class="hero-art"><div class="orbit"></div><div class="orbit two"></div><div class="orb"></div><div class="float f1">UNITY • SERVICE • LEADERSHIP</div><div class="float f2">36 STATES + FCT</div></div></div></section>
+<div class="ticker"><div class="wrap"><span>Unity</span><span>Service</span><span>Development</span><span>Leadership</span><span>National Integration</span></div></div>
+<section class="section" id="about"><div class="wrap grid2"><div><div class="kicker">About the scheme</div><h2>One year.<br>A shared experience.</h2></div><div class="copy"><p>The National Youth Service Corps is a national service scheme created to encourage common ties among Nigerian youths and promote national unity. Its work brings young graduates into shared experiences of service, development and community.</p><p>The NYSC's official materials describe its mission around national unity, sustainable development, self-reliance and preparing graduate youths for leadership. <a href="https://portal.nysc.org.ng/nysc1/About" style="color:var(--green);font-weight:800">Read the official overview →</a></p></div></div></section>
+<section class="section" id="service" style="padding-top:0"><div class="wrap"><div class="kicker">The service year</div><h2>Four stages.<br>One journey.</h2><div class="cards"><article class="card"><div class="num">01</div><h3>Orientation</h3><p>Begin the service year with the compulsory orientation course and shared camp experience.</p></article><article class="card"><div class="num">02</div><h3>Primary Assignment</h3><p>Contribute your skills and professional experience through your place of primary assignment.</p></article><article class="card"><div class="num">03</div><h3>Community Development</h3><p>Take part in projects and activities that contribute to communities and national development.</p></article><article class="card"><div class="num">04</div><h3>Passing Out</h3><p>Complete the service journey and move forward with your national service experience.</p></article></div></div></section>
+<section class="section portal" id="portal"><div class="wrap portalbox"><div class="portalvisual"><div style="font-weight:900;font-size:13px;letter-spacing:.12em">NIGERIA • NYSC</div><div class="map"></div><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i><div class="maplabel">A connected national service</div></div><div><div class="kicker">Quick access</div><h2>Everything you need, closer.</h2><div class="service-links"><a class="service" href="https://portal.nysc.org.ng/nysc/"><span>Prospective Corps Member Portal</span>↗</a><a class="service" href="https://www.nysc.gov.ng/mobtable.html"><span>Mobilization Time-table</span>↗</a><a class="service" href="https://www.nysc.gov.ng/serviceyear.html"><span>Service Year Overview</span>↗</a><a class="service" href="https://www.nysc.gov.ng/faq.html"><span>Frequently Asked Questions</span>↗</a></div></div></div></section>
+<section class="quote"><div class="wrap"><h2>Service is more than a destination. It is a connection to Nigeria.</h2><p>Built around the enduring NYSC ideals of unity, service and national development.</p></div></section>
+</main>
+<footer class="footer"><div class="wrap footerin"><span>© 2026 NYSC concept landing page</span><span><a href="https://www.nysc.gov.ng/">Official NYSC website ↗</a></span></div></footer>
 </body>
 </html>
