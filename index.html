@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A thoughtful digital space for bold ideas, meaningful work, and what comes next." />
+  <title>Northstar — Make your next move</title>
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #60716d;
+      --cream: #f4f1e9;
+      --paper: #fbfaf7;
+      --green: #195d4b;
+      --lime: #d8ee83;
+      --line: rgba(23, 33, 31, .14);
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: auto; }
+
+    header { padding: 25px 0; border-bottom: 1px solid var(--line); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; font-size: 1.15rem; }
+    .logo-mark { width: 27px; height: 27px; background: var(--green); display: grid; place-items: center; color: var(--lime); border-radius: 50% 50% 50% 8px; font-size: .9rem; }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: .9rem; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { padding: 12px 18px; border: 1px solid var(--ink); border-radius: 99px; color: var(--ink); }
+    .nav-cta:hover { background: var(--ink); color: white; }
+
+    .hero { padding: 88px 0 110px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 70px; }
+    .eyebrow { color: var(--green); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 24px; }
+    h1 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(3.8rem, 7vw, 6.7rem); font-weight: 400; line-height: .92; letter-spacing: -.075em; }
+    h1 em { color: var(--green); font-style: italic; }
+    .hero-copy { max-width: 420px; margin: 30px 0 34px; color: var(--muted); font-size: 1.07rem; line-height: 1.7; }
+    .buttons { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; gap: 10px; padding: 16px 22px; border-radius: 99px; background: var(--green); color: white; font-weight: 700; font-size: .92rem; }
+    .button:hover { background: #0e4638; transform: translateY(-2px); }
+    .button.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+    .button.secondary:hover { border-color: var(--ink); background: var(--cream); }
+    .arrow { font-size: 1.1rem; }
+
+    .visual { position: relative; min-height: 480px; background: var(--cream); overflow: hidden; border-radius: 2px; }
+    .visual::before { content: ''; position: absolute; width: 390px; height: 390px; border: 1px solid rgba(25, 93, 75, .25); border-radius: 50%; top: 45px; left: 50%; transform: translateX(-50%); }
+    .visual::after { content: ''; position: absolute; width: 280px; height: 280px; border: 1px solid rgba(25, 93, 75, .25); border-radius: 50%; top: 100px; left: 50%; transform: translateX(-50%); }
+    .sun { position: absolute; width: 158px; height: 158px; border-radius: 50%; background: var(--lime); top: 116px; left: 50%; transform: translateX(-50%); }
+    .mountain { position: absolute; left: -5%; bottom: 0; width: 110%; height: 220px; background: var(--green); clip-path: polygon(0 75%, 17% 49%, 30% 67%, 48% 23%, 67% 65%, 78% 45%, 100% 76%, 100% 100%, 0 100%); }
+    .visual-note { position: absolute; z-index: 2; bottom: 27px; left: 28px; color: white; font-size: .77rem; letter-spacing: .1em; text-transform: uppercase; }
+
+    .band { background: var(--green); color: white; padding: 19px 0; overflow: hidden; }
+    .ticker { display: flex; justify-content: space-between; align-items: center; gap: 30px; white-space: nowrap; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+    .ticker span { color: var(--lime); }
+
+    .intro { padding: 110px 0; display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4rem); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+    .intro-text { max-width: 600px; color: var(--muted); font-size: 1.2rem; line-height: 1.65; }
+    .intro-text p { margin-top: 0; }
+    .quote { margin-top: 42px; padding-left: 20px; border-left: 2px solid var(--lime); color: var(--ink); font-family: var(--serif); font-size: 1.35rem; line-height: 1.4; }
+
+    footer { padding: 30px 0 45px; display: flex; justify-content: space-between; gap: 25px; color: var(--muted); font-size: .85rem; }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 32px, 600px); }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 65px 0 75px; display: block; }
+      .hero h1 { font-size: clamp(3.5rem, 18vw, 5.5rem); }
+      .visual { margin-top: 55px; min-height: 360px; }
+      .visual::before { width: 290px; height: 290px; }
+      .visual::after { width: 210px; height: 210px; top: 85px; }
+      .sun { width: 115px; height: 115px; top: 100px; }
+      .mountain { height: 160px; }
+      .ticker { justify-content: flex-start; overflow: hidden; }
+      .ticker span:nth-child(2) { display: none; }
+      .intro { padding: 75px 0; display: block; }
+      .intro-text { margin-top: 35px; font-size: 1.05rem; }
+      footer { display: block; line-height: 2; }
+      footer nav { display: block; margin-top: 10px; }
+      footer nav a { margin-right: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="logo" href="#top"><span class="logo-mark">✦</span> NORTHSTAR</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="nav-cta" href="mailto:hello@example.com">Let’s talk <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Ideas with direction</div>
+        <h1>Build what’s <em>next.</em></h1>
+        <p class="hero-copy">Northstar is a creative studio for people shaping a more thoughtful, more useful future.</p>
+        <div class="buttons">
+          <a class="button" href="#about">Explore the idea <span class="arrow">→</span></a>
+          <a class="button secondary" href="mailto:hello@example.com">Start a conversation</a>
+        </div>
+      </div>
+      <div class="visual" aria-label="Abstract illustration of a sunrise over mountains">
+        <div class="sun"></div>
+        <div class="mountain"></div>
+        <div class="visual-note">A clearer view forward</div>
+      </div>
+    </section>
+
+    <div class="band"><div class="wrap ticker"><span>Clarity</span><b>✦</b><span>Curiosity</span><b>✦</b><span>Courage</span><b>✦</b><span>Craft</span></div></div>
+
+    <section class="wrap intro" id="about">
+      <h2>Good work starts with a better question.</h2>
+      <div class="intro-text">
+        <p>We partner with ambitious teams to turn complex challenges into clear, compelling experiences. From first thought to final detail, we bring strategy, design, and momentum to the table.</p>
+        <div class="quote">“The future belongs to those who can imagine it clearly.”</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap" id="contact">
+    <div>© 2026 Northstar Studio</div>
+    <nav aria-label="Footer navigation"><a href="mailto:hello@example.com">hello@example.com</a> <a href="#top">Back to top ↑</a></nav>
+  </footer>
+</body>
+</html>
